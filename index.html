@@ -49,12 +49,22 @@
       scene.add(mesh);
 
       camera.position.z = 5;
-      var xDirection = 1;
-      var yDirection = 1;
       function animate() {
         requestAnimationFrame(animate);
-        mesh.rotation.x += 0.01 * xDirection;
-        mesh.rotation.y += 0.01 * yDirection;
+        mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.01;
+
+        if(mesh.position.x > 0) {
+          mesh.position.x = Math.max(0, mesh.position.x-0.003);
+        }else if(mesh.position.x < 0) {
+          mesh.position.x = Math.min(0, mesh.position.x + 0.003)
+        }
+
+        if(mesh.position.y > 0) {
+          mesh.position.y = Math.max(0, mesh.position.y-0.003);
+        }else if(mesh.position.y < 0) {
+          mesh.position.y = Math.min(0, mesh.position.y + 0.003)
+        }
 
         if(camera.position.z > 5) {
           camera.position.z = Math.max(5, camera.position.z-0.01);
@@ -74,16 +84,17 @@
         const currentY = event.clientY;
 
         if (currentX > lastX) {
-          xDirection = +1;
+          // xDirection = +1;
+          mesh.position.x += 0.006;
         } else if (currentX < lastX) {
-          mesh.rotation.x -= 0.002;
-          xDirection = -1;
+          mesh.position.x -= 0.006;
         }
         if (currentY > lastY) {
-          yDirection = 1;
+          // yDirection = 1;
+          mesh.position.y -= 0.003;
         } else if (currentY < lastY) {
-          mesh.rotation.y -= 0.002;
-          xDirection = -1;
+          mesh.position.y += 0.003;
+          // xDirection = -1;
         }
 
         lastY = currentY;
