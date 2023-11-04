@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rupasutra</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+
+  <body>
+    <div class="animation"></div>
+    <div class="container">
+      <h1>rupasutra</h1>
+      <small>Computer Vision & Computer Graphics Tech.</small>
+    </div>
+
+    <footer>
+      <small> <a href="https://www.rupasutra.com">www.rupasutra.com</a></small>
+      <br/><small class="copyright-text"> &copy; 2023</small>
+
+    </footer>
+
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="./assets/copyright.js"></script>
+    <script>
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      const container = document.getElementsByClassName("animation")[0];
+      container.appendChild(renderer.domElement);
+      scene.fog = new THREE.FogExp2(0xf01210, 0.2); // Parameters: color, density
+
+
+      const geometry = new THREE.TorusKnotGeometry();
+      const material = new THREE.MeshBasicMaterial({ color: 0xf0f0f5, wireframe: true });
+      const mesh = new THREE.Mesh(geometry, material);
+      scene.add(mesh);
+
+      camera.position.z = 5;
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.01;
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
