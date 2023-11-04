@@ -57,4 +57,16 @@ body {
     font-size: x-small;
   }
 
+  @media (max-width: 767px) {
+    .container h1 {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 406px) {
+    .container h1 {
+        font-size: 3rem;
+    }
+}
+
   

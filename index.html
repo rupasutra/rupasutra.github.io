@@ -4,20 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rupasutra</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles.css" />
   </head>
 
   <body>
     <div class="animation"></div>
     <div class="container">
       <h1>rupasutra</h1>
-      <small>Computer Vision & Computer Graphics Tech.</small>
     </div>
 
     <footer>
-      <small> <a href="https://www.rupasutra.com">www.rupasutra.com</a></small>
-      <br/><small class="copyright-text"> &copy; 2023</small>
-
+      <small>Computer Vision & Computer Graphics Tech.</small>
+      <br/><small> <a href="https://www.rupasutra.com">www.rupasutra.com</a></small>
+      <br /><small class="copyright-text"> &copy; 2023</small>
     </footer>
 
     <script src="https://threejs.org/build/three.js"></script>
@@ -36,9 +35,11 @@
       container.appendChild(renderer.domElement);
       scene.fog = new THREE.FogExp2(0x200000, 0.2); // Parameters: color, density
 
-
       const geometry = new THREE.TorusKnotGeometry();
-      const material = new THREE.MeshBasicMaterial({ color: 0xf0f0f5, wireframe: true });
+      const material = new THREE.MeshBasicMaterial({
+        color: 0xf0f0f5,
+        wireframe: true,
+      });
       const mesh = new THREE.Mesh(geometry, material);
       scene.add(mesh);
 
