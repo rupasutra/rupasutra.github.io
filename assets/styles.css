@@ -25,6 +25,14 @@ body {
     text-align: center;
   }
 
+  .hero{
+    min-height: 100vh;
+  }
+
+  #section1{
+    background-color: turquoise;
+  }
+
   .container h1 {
     font-family: 'LeagueSpartan-bold';
     font-size: 10rem;
